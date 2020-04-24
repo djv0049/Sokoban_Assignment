@@ -1,0 +1,33 @@
+package sokoban;
+
+import javax.swing.JFrame;
+
+public class JFrameView implements IView {
+	
+	// this will be the class where the JFrame is created and where all the code goes that will display stuff on it. 
+	
+		// render()?
+		// update characters()?
+	
+	
+	JFrame frame;
+	@Override
+	public void start() {
+		frame = new JFrame();
+		setupFrame();
+		frame.setVisible(true);
+		
+	}
+
+	@Override
+	public void stop() {
+		// for debug purposes only
+		System.out.print("stopped");
+		
+	}
+	
+	public void setupFrame() {
+		this.frame.setSize(500, 500);
+	}
+	
+}

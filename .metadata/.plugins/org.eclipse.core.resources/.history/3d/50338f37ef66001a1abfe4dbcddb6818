@@ -1,0 +1,42 @@
+package sokoban;
+
+public class Tile {
+	
+	// types { 'w': wall, 'e' : empty, 'v' : void, 'g' : goal}
+	// 
+	
+	
+	
+	
+	private char type;
+	private int size;  // pixels
+	private int[] pos;
+	private boolean traversable;
+	
+	public Tile(char type, int[] vec) {
+		this.type = type;
+		this.pos = vec;
+		//this.size = size;  
+		this.setTraverse();
+	}
+	
+	public void setTraverse() {
+		if(this.type == 'e' || this.type == 'g') {
+			this.traversable = true;
+		}
+		else if(this.type == 'w' || this.type == 'v') {
+			this.traversable = false;
+		}
+	}
+	public boolean getTraverse() {
+		return this.traversable;
+	}
+	
+	public int[] getPos() {
+		return this.pos;
+	}
+	
+	public char getType() {
+		return this.type;
+	}
+}

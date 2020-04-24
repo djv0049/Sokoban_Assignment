@@ -1,0 +1,92 @@
+package sokoban;
+
+import java.util.ArrayList;
+
+public class Level {
+	
+	private int height;
+	private int width;
+	private String name;
+	private int moveCount;
+	private ArrayList<String> levelList;
+	private String levelString;
+	private int CompletedCount;
+	public int targetCount;
+	
+	
+	public Level(String name, int height, int width, String levelString) {
+		this.levelList = new  ArrayList<String>();
+		this.name = name;
+		this.height = height;
+		this.width = width;
+		this.CompletedCount = 0;
+		this.moveCount = 0;
+		String temp ="";
+		for(int i = 0; i < levelString.length();i++) {
+			temp += levelString.charAt(i);
+			if(i%width==width-1&&i!=0) {
+				this.levelList.add(temp);
+				temp = "";
+			}
+		}
+		drawLevel();
+		setTargetCount();
+	}
+	
+	
+	public String toString() {
+		//" + "move 0" + "\n" + "completed 0 of 1" + "\n";
+		String result = this.name + "\n" + this.levelString + "\nmove " +  this.moveCount;
+		result += "\ncompleted " + this.CompletedCount + " of " + this.targetCount + "\n";
+		return result;
+	}
+	
+	public void drawLevel() {
+		String tempString = ""; 
+		for(String s : this.levelList) {
+			tempString += s + "\n";
+		}
+		this.levelString = tempString;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
+
+	public int getWidth() {
+		return width;
+	}
+	
+
+	public String getName() {
+		return name;
+	}
+	
+
+	public int getMoveCount() {
+		return moveCount;
+	}
+
+	
+	public int getCompletedCount() {
+		return CompletedCount;
+	}
+	
+	
+	public void setTargetCount() {
+		for(String s : this.levelList){
+			for(char c : s.toCharArray()) {
+				if (c == '+') {
+					this.targetCount++;
+				}
+			}
+			
+		}
+	}
+	
+	
+	public void move() {
+		
+	}
+}

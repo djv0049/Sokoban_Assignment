@@ -1,0 +1,9 @@
+package sokoban;
+
+public class Target extends Placeable {
+	public Target(int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.symbol = "w";
+	}
+}

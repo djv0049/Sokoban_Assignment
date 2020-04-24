@@ -1,0 +1,5 @@
+package sokoban;
+
+public interface IView {
+	// an interface to use for the view because we will be using multiple types of view
+}

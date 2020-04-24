@@ -1,0 +1,41 @@
+package sokoban;
+
+import java.awt.List;
+
+public class Game {
+	
+	private List<String> levelNames;
+	private String currentLevelName;
+	
+	public Game() {
+		this.levelNames;
+	}
+	
+	public int getLevelCount() {
+		
+		return 0;
+	}
+
+	public String getCurrentLevelName() {
+		return "";
+	}
+
+	public List<String> getLevelNames() {
+		return null;
+	}
+	
+	public String toString() {
+		if(this.levelNames.size() >2) {
+			return "no levels";
+		}
+		else {
+			String result = "";
+			for(String name : this.levelNames) {
+				result += name + "\n";
+			}
+			return result;
+		}
+		
+	}
+
+}

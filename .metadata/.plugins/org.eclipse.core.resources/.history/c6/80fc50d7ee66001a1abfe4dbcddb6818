@@ -1,0 +1,21 @@
+package sokoban;
+
+
+import java.util.ArrayList;
+import java.util.Timer;
+
+public class Level {
+	
+	ArrayList<String> level = new ArrayList<String>();
+	private ArrayList<int[][]> moves;
+	private int[][] lastMove;
+	public int moveCount;
+	public int pushesCount;
+	public Timer time;
+	
+	
+	public Level(String levelTxt) {
+		// get level from text, 
+		
+	}
+}

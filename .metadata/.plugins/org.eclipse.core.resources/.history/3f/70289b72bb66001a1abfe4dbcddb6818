@@ -1,0 +1,35 @@
+package sokoban;
+
+public class Character {
+	private char type;
+	private int[] pos;
+	private char facing;
+	
+	public Character(char type, int[] pos) {
+		this.type = type;
+		this.pos = pos;
+	}
+	
+	private void setPos(int[] newPos) {
+		this.pos = newPos;
+	}
+	public int[] getPos() {
+		return this.pos;
+	}
+	
+	private void setFacing(char direction) {
+		this.facing = direction;
+	}
+	
+	public char getType() {
+		return this.type;
+	}
+	
+	public void move() {
+		char direction = this.facing;
+		int[] oldpos = this.pos;
+		if(direction == 'n') {
+			o			
+		}
+	}
+}

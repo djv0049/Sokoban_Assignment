@@ -1,0 +1,10 @@
+package sokoban;
+
+import java.util.ArrayList;
+
+public class Level {
+	ArrayList<String> level = new ArrayList<String>();
+	public Level(String levelTxt) {
+		// get level from text, 
+	}
+}

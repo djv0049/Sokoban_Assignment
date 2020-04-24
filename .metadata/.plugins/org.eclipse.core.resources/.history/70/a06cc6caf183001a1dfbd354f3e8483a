@@ -1,0 +1,27 @@
+package sokoban;
+
+public class Target extends Placeable {
+	private Worker worker = null;
+	private Crate crate = null;
+	public Target(int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.symbol = "+";
+		
+	}
+
+	public void addWorker(Worker worker) {
+		this.symbol = "W";
+		this.mover = worker;
+	}
+	
+	public void removeWorker(Worker worker) {
+		this.symbol = "+";
+		this.mover = null;
+	}
+	
+	public void addCrate(Crate crate) {
+		this.
+		
+	}
+}

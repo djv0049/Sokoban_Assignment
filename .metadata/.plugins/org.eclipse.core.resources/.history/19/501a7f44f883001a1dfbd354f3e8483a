@@ -1,0 +1,53 @@
+package sokoban;
+
+public class Level {
+	private int height;
+	private int width;
+	private String name;
+	private int moveCount;
+	private String levelString;
+	private int CompletedCount;
+	public int targetCount;
+	public Level(String name, int height, int width, String levelString) {
+		this.name = name;
+		this.height = height;
+		this.width = width;
+		this.CompletedCount = 0;
+		this.moveCount = 0;
+		String temp ="";
+		for(int i = 0; i < levelString.length()-1; i++) {
+			if( i % width == 0 && i!=0) {
+				temp += "\n";
+			}
+			temp += levelString.charAt(i);
+		}
+		this.levelString = temp;
+	}
+	
+	public String toString() {
+		//" + "move 0" + "\n" + "completed 0 of 1" + "\n";
+		String result = this.name + "\n" + this.levelString + "\n" +  this.moveCount +"\n";
+		result += "completed" + this.CompletedCount + " out of " + this.targetCount;
+		return result;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getMoveCount() {
+		return moveCount;
+	}
+
+	public int getCompletedCount() {
+		return CompletedCount;
+	}
+}

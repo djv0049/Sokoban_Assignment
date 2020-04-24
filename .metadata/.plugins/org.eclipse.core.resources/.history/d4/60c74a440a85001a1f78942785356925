@@ -1,0 +1,11 @@
+package sokoban;
+
+public abstract class Placeable {
+	protected int x = 9999;
+	private int y = 9999;
+	String symbol = "nothing yet";
+	
+	public String toString() {
+		return this.symbol;
+	}
+}

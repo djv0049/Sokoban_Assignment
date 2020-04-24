@@ -1,0 +1,43 @@
+package sokoban;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Game {
+	
+	private List<String> levelNames = new ArrayList<>();
+	private String currentLevelName = "";
+	
+	public Game() {
+		
+	}
+	
+	public int getLevelCount() {
+		
+		return 0;
+	}
+
+	public String getCurrentLevelName() {
+		return this.currentLevelName;
+		
+	}
+
+	public List<String> getLevelNames() {
+		return this.levelNames;
+	}
+	
+	public String toString() {
+		if(this.levelNames.size() <1) {
+			return "no levels";
+		}
+		else {
+			String result = "";
+			for(String name : this.levelNames) {
+				result += name + "\n";
+			}
+			return result;
+		}
+		
+	}
+
+}

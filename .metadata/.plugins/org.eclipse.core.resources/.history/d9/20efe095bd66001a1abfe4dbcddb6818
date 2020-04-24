@@ -1,0 +1,15 @@
+package sokoban;
+
+public class Controller {
+	/**
+	 * this is where the code to take user input, and interact with the model/s then relay information back to the view  
+	 */
+	IView myView;
+	public Controller(IView theView) {
+		this.myView = theView;
+	}
+	
+	public void go() {
+		this.myView.
+	}
+}

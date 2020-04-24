@@ -1,0 +1,19 @@
+package sokoban;
+
+public class Empty extends Placeable {
+	public Empty(int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.symbol = "w";
+	}
+
+	public void addWorker(Worker worker) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addCrate(Crate crate) {
+		// TODO Auto-generated method stub
+		
+	}
+}

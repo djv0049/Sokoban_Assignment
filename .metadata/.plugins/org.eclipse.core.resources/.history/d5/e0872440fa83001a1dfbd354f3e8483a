@@ -1,0 +1,26 @@
+package sokoban;
+
+import java.util.List;
+
+public class Game {
+
+	public int getLevelCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public String getCurrentLevelName() {
+		// TODO Auto-generated method stub
+		return "";
+	}
+
+	public List<String> getLevelNames() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public String toString() {
+		return "no levels"
+	}
+
+}

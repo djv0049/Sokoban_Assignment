@@ -1,0 +1,8 @@
+package sokoban;
+
+public class JFrameView implements IView {
+	// this will be the class where the JFrame is created and where all the code goes that will display stuff on it. 
+	
+	// render()?
+	// update characters()?
+}

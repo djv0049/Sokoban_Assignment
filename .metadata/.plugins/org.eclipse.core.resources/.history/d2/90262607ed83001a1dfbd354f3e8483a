@@ -1,0 +1,8 @@
+package sokoban;
+
+public interface Placeable {
+	int x = 9999;
+	int y = 9999;
+	String Symbol = "nothing yet";
+	String toString();
+}

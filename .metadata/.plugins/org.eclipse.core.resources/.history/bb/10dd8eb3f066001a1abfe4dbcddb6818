@@ -1,0 +1,42 @@
+package sokoban;
+
+
+import java.util.ArrayList;
+import java.util.Timer;
+
+public class Level {
+	
+	ArrayList<String> level = new ArrayList<String>();
+	private ArrayList<int[][]> moves;
+	private int[][] lastMove;
+	public int moveCount;
+	public int pushesCount;
+	public Timer time;
+	private ArrayList<Tile> myTiles;
+	private ArrayList<Character> myCharacters;
+	
+	
+	public Level(String levelTxt) {
+		// get level from text, 
+		
+	}
+	
+	
+	public void readLevel(String levelTxt) {
+		int x= 0;
+		int y =0;
+		String[] rows = levelTxt.split("\n");
+		for(String line: rows) {
+			char[] cols =line.toCharArray(); 
+			for(char c : cols ) {
+				int[] vec = {x,y};
+				Tile t = new Tile(c, vec ,this);
+				
+				y++;
+			}
+			
+			
+			x++; // at end
+		}
+	}
+}

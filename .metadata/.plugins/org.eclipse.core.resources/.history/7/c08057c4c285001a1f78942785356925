@@ -1,0 +1,85 @@
+package sokoban;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Level {
+	private int height;
+	private int width;
+	private String name;
+	private int moveCount;
+	private List placeablesList;
+	private String levelString;
+	private int CompletedCount;
+	public int targetCount;
+	
+	// change the level list to use placables and create new instances of each one 
+	
+	public Level(String name, int height, int width, String levelString) {
+		this.name = name;
+		this.height = height;
+		this.width = width;
+		this.CompletedCount = 0;
+		this.moveCount = 0;
+		initializeArrays(levelString);
+		drawLevel();
+		setTargetCount();
+	}
+	
+	
+	public String toString() {
+		//" + "move 0" + "\n" + "completed 0 of 1" + "\n";
+		String result = this.name + "\n" + this.levelString + "\nmove " +  this.moveCount;
+		result += "\ncompleted " + this.CompletedCount + " of " + this.targetCount + "\n";
+		return result;
+	}
+	
+	public void drawLevel() {
+		// fix soon
+		String tempString = ""; 
+		for(Placeable s : this.placeablesList) { // use array in the array
+			tempString += s.toString() + "\n";
+		}
+		this.levelString = tempString;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int getMoveCount() {
+		return moveCount;
+	}
+
+	public int getCompletedCount() {
+		return CompletedCount;
+	}
+	
+	public void initializeArrays(String levelString) {
+		this.placeablesList = new  ArrayList<ArrayList<Placeable>>(this.height);
+		for(int x = 0, c = 0; x < this.height; x++) {
+			ArrayList<Placeable> p = new ArrayList<Placeable>();
+			for(int y = 0; y < this.width; y++) {
+				// add 'c' from level string to array
+			}
+		}	
+	}
+	
+	
+	public void setTargetCount() {
+		for(char c : this.levelString.toCharArray()) {
+			if (c == '+') {
+				this.targetCount++;
+			}
+		}
+		
+	}
+}

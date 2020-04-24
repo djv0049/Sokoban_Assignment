@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.Point"/>
+    <fullyQualifiedTypeName name="sokoban.Placeable"/>
+    <fullyQualifiedTypeName name="sokoban.Empty"/>
+    <fullyQualifiedTypeName name="sokoban.Wall"/>
+    <fullyQualifiedTypeName name="sun.tools.jconsole.Worker"/>
+    <fullyQualifiedTypeName name="sokoban.Worker"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="sokoban.Level"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
+    <fullyQualifiedTypeName name="sokoban.Game"/>
+    <fullyQualifiedTypeName name="org.graalvm.compiler.loop.InductionVariable.Direction"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Instruction.Switch"/>
+    <fullyQualifiedTypeName name="sokoban.Target"/>
+    <fullyQualifiedTypeName name="sokoban.Crate"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+</qualifiedTypeNameHistroy>
