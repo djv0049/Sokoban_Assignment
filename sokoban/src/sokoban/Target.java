@@ -1,8 +1,8 @@
 package sokoban;
 
-public class Target extends Placeable {
-	private Worker worker = null;
-	private Crate crate = null;
+public class Target extends Placeable implements ITraversable{
+	public Worker worker = null;
+	public Crate crate = null;
 	public Target(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -29,6 +29,16 @@ public class Target extends Placeable {
 	public void removeCrate(Crate crate) {
 		this.symbol = "+";
 		this.worker = null;
+	}
+
+	@Override
+	public Worker getWorker() {
+		return this.worker;
+	}
+
+	@Override
+	public Crate getCrate() {
+		return this.crate;
 	}
 	
 }

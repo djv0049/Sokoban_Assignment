@@ -1,5 +1,6 @@
 package sokoban;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,6 @@ public class Level {
 	private int CompletedCount;
 	public int targetCount;
 	
-	// change the level list to use placables and create new instances of each one 
-	
 	public Level(String name, int height, int width, String levelString) {
 		this.name = name;
 		this.height = height;
@@ -27,7 +26,26 @@ public class Level {
 		drawLevel();
 		setTargetCount();
 	}
+	public Worker getWorker(){
+		Worker result = null;
+		for(int x = 0;x < height; x++) {
+			for(int y = 0; y < width; y++){
+				Placeable p = getPlaceabelAt(new Point(x,y));
+				if(p.symbol == "w" || p.symbol == "W") {
+					return ((ITraversable) p).getWorker();
+				}
+			}
+		}
+		return result;
+	}
 	
+	public void addMove() {
+		this.moveCount++;
+	}
+	
+	public Placeable getPlaceabelAt(Point p) {
+		return this.placeablesList.get(p.x).get(p.y);
+	}
 	
 	public String toString() {
 		//" + "move 0" + "\n" + "completed 0 of 1" + "\n";
@@ -68,6 +86,7 @@ public class Level {
 		return CompletedCount;
 	}
 	
+	
 	public void initializeArrays(String levelString) {
 		this.placeablesList = new  ArrayList<ArrayList<Placeable>>(this.height);
 		for(int x = 0, i = 0; x < this.height; x++) {
@@ -94,8 +113,17 @@ public class Level {
 	private Placeable createPlaceable(char s, int x, int y) {
 		Placeable p;
 		switch(s){
+		case 'W':
+			Worker worker = new Worker(x,y);
+			Target target = new Target(x,y);
+			target.addWorker(worker);
+			p = target;
+			break;
 		case 'w':
-			p = new Worker(x,y);
+			Worker w = new Worker(x,y);
+			Empty e = new Empty(x,y);
+			e.addWorker(w);
+			p = e;
 			break;
 		case '#':
 			p = new Wall(x,y);
@@ -104,7 +132,16 @@ public class Level {
 			p = new Target(x, y);
 			break;
 		case 'x':
-			p = new Crate(x, y);
+			Empty empty = new Empty(x,y);
+			Crate crate = new Crate(x, y);
+			empty.addCrate(crate);
+			p = empty;
+			break;
+		case 'X':
+			Target t = new Target(x,y);
+			Crate c = new Crate(x,y);
+			t.addCrate(c);
+			p = t;
 			break;
 		default:
 			p = new Empty(x,y);

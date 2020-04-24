@@ -1,14 +1,16 @@
 package sokoban;
 
-public class Empty extends Placeable {
-	private Worker worker;
-	private Crate crate;
+public class Empty extends Placeable implements ITraversable{
+	public Worker worker;
+	public Crate crate;
 	public Empty(int x, int y) {
 		this.x = x;
 		this.y = y;
 		this.symbol = ".";
 	}
-
+	public Worker getWorker() {
+		return this.worker;
+	}
 	public void addWorker(Worker worker) {
 		this.symbol = "w";
 		this.worker = worker;
@@ -17,6 +19,10 @@ public class Empty extends Placeable {
 	public void removeWorker(Worker worker) {
 		this.symbol = ".";
 		this.worker = null;
+	}
+	
+	public Crate getCrate() {
+		return this.crate;
 	}
 	
 	public void addCrate(Crate crate) {

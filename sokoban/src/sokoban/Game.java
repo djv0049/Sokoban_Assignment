@@ -1,5 +1,6 @@
 package sokoban;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import sokoban.Level;
@@ -12,10 +13,29 @@ public class Game {
 	private int levelCount;
 	
 	public Game() {
-		
+		// possible constructor
 	}
 	
-	public void move() {
+	public void move(Direction d) {
+		Worker currentWorker = this.currentLevel.getWorker();
+		// get direction 
+		Point dp = d.getPoint();	
+		// get worker coords, 
+		Point wp = currentWorker.getPoint();
+		// add point coords;
+		Point newP = new Point(dp.x + wp.x, dp.y + wp.y);
+		// check if placeable at sumCoords is instance of traversable
+		Placeable destination = currentLevel.getPlaceabelAt(newP);
+		//if true, remove player from current placeable
+		if(destination instanceof ITraversable) {
+			((ITraversable) this.currentLevel.getPlaceabelAt(wp)).removeWorker(currentWorker);
+			currentWorker.x = destination.getPoint().x;
+			currentWorker.y = destination.getPoint().y;
+			((ITraversable) destination).addWorker(currentWorker);
+			this.currentLevel.addMove();
+		}
+		this.currentLevel.drawLevel();
+		
 		
 	}
 	
@@ -29,7 +49,9 @@ public class Game {
 			return "no levels";
 		}
 		else return this.currentLevel.getName();
-		
+	}
+	public Level getCurrentLevel() {
+		return this.currentLevel;
 	}
 
 	public List<String> getLevelNames() {
@@ -56,10 +78,6 @@ public class Game {
 		this.levelNames.add(level.getName());
 		this.levelCount++;
 		this.currentLevel = level;
-	}
-	
-	public void move(Direction d) {
-		
 	}
 	
 }
