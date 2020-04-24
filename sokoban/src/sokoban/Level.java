@@ -39,6 +39,59 @@ public class Level {
 		return result;
 	}
 	
+	public void moveWorker(Direction d) {
+		
+		
+		Worker worker = getWorker();
+		Point direction = d.getPoint();
+		Point workerPos = worker.getPoint();
+		Placeable p = getPlaceabelAt(workerPos);
+		ITraversable origin = (ITraversable) p;
+		int x = workerPos.x + direction.x;
+		int y = workerPos.y + direction.y;
+		Placeable dest = getPlaceabelAt(new Point(x,y));
+		if(dest instanceof ITraversable) {
+			ITraversable destination = (ITraversable) dest;
+			if(destination.getCrate() != null) {
+				if(!pushCrate(destination,d)) {
+					return;
+				}
+			}
+			origin.removeWorker(worker);
+			worker.x = destination.getPoint().x;
+			worker.y = destination.getPoint().y;
+			destination.addWorker(worker);
+			this.addMove();
+		}
+	}
+	
+	public boolean pushCrate(ITraversable crateOrigin, Direction d) {
+		boolean result = false;
+		Crate crate = crateOrigin.getCrate();
+		int x = crateOrigin.getPoint().x + d.getPoint().x;
+		int y = crateOrigin.getPoint().y + d.getPoint().y;
+		Placeable dest = getPlaceabelAt(new Point(x,y));
+		if(dest instanceof ITraversable) {
+			boolean destIsTarget = dest instanceof Target;
+			boolean originIsTarget = crateOrigin instanceof Target;
+			result = true;
+			ITraversable destination = (ITraversable) dest;
+			crateOrigin.removeCrate(crate);
+			crate.x = destination.getPoint().x;
+			crate.y = destination.getPoint().y;
+			destination.addCrate(crate);
+			int doneTargets = 0;
+			doneTargets += destIsTarget ? 1:0;
+			doneTargets -= originIsTarget? 1:0;
+			addCompleted(doneTargets);
+		}
+		return result;
+	}
+	
+	public void addCompleted(int number) {
+		this.CompletedCount += number;
+	}
+	
 	public void addMove() {
 		this.moveCount++;
 	}

@@ -1,5 +1,7 @@
 package sokoban;
 
+import java.awt.Point;
+
 public interface ITraversable {
 	
 	void addCrate(Crate c);
@@ -8,4 +10,5 @@ public interface ITraversable {
 	void removeWorker(Worker w);
 	Worker getWorker();
 	Crate getCrate();
+	Point getPoint();
 }

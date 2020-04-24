@@ -17,23 +17,7 @@ public class Game {
 	}
 	
 	public void move(Direction d) {
-		Worker currentWorker = this.currentLevel.getWorker();
-		// get direction 
-		Point dp = d.getPoint();	
-		// get worker coords, 
-		Point wp = currentWorker.getPoint();
-		// add point coords;
-		Point newP = new Point(dp.x + wp.x, dp.y + wp.y);
-		// check if placeable at sumCoords is instance of traversable
-		Placeable destination = currentLevel.getPlaceabelAt(newP);
-		//if true, remove player from current placeable
-		if(destination instanceof ITraversable) {
-			((ITraversable) this.currentLevel.getPlaceabelAt(wp)).removeWorker(currentWorker);
-			currentWorker.x = destination.getPoint().x;
-			currentWorker.y = destination.getPoint().y;
-			((ITraversable) destination).addWorker(currentWorker);
-			this.currentLevel.addMove();
-		}
+		this.currentLevel.moveWorker(d);
 		this.currentLevel.drawLevel();
 		
 		

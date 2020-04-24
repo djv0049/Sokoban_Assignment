@@ -3,10 +3,10 @@ package sokoban;
 import java.awt.Point;
 
 public enum Direction {
-	up (0,-1),
-	down (0,1),
-	left (-1,0),
-	right (1,0);
+	UP (0,-1),
+	DOWN (0,1),
+	LEFT (-1,0),
+	RIGHT (1,0);
 	
 	private final Point p;
 	
