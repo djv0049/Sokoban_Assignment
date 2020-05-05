@@ -24,7 +24,6 @@ public class Level {
 		this.moveCount = 0;
 		initializeArrays(levelString);
 		drawLevel();
-		setTargetCount();
 	}
 	public Worker getWorker(){
 		Worker result = null;
@@ -50,6 +49,7 @@ public class Level {
 		int x = workerPos.x + direction.x;
 		int y = workerPos.y + direction.y;
 		Placeable dest = getPlaceabelAt(new Point(x,y));
+		this.addMove();
 		if(dest instanceof ITraversable) {
 			ITraversable destination = (ITraversable) dest;
 			if(destination.getCrate() != null) {
@@ -61,7 +61,7 @@ public class Level {
 			worker.x = destination.getPoint().x;
 			worker.y = destination.getPoint().y;
 			destination.addWorker(worker);
-			this.addMove();
+			
 		}
 	}
 	
@@ -101,7 +101,6 @@ public class Level {
 	}
 	
 	public String toString() {
-		//" + "move 0" + "\n" + "completed 0 of 1" + "\n";
 		String result = this.name + "\n" + this.levelString + "move " +  this.moveCount;
 		result += "\ncompleted " + this.CompletedCount + " of " + this.targetCount + "\n";
 		return result;
@@ -154,14 +153,7 @@ public class Level {
 	}
 	
 	
-	public void setTargetCount() {
-		for(char c : this.levelString.toCharArray()) {
-			if (c == '+') {
-				this.targetCount++;
-			}
-		}
-		
-	}
+
 	
 	private Placeable createPlaceable(char s, int x, int y) {
 		Placeable p;
@@ -183,6 +175,7 @@ public class Level {
 			break;
 		case '+':
 			p = new Target(x, y);
+			this.targetCount++;
 			break;
 		case 'x':
 			Empty empty = new Empty(x,y);

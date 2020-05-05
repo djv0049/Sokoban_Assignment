@@ -1,6 +1,6 @@
 package sokoban;
 
-import java.awt.Point;
+
 import java.util.ArrayList;
 import java.util.List;
 import sokoban.Level;
@@ -9,18 +9,15 @@ public class Game {
 	private Level currentLevel;
 	private List<Level> allMyLevels = new ArrayList<Level>();
 	private List<String> levelNames = new ArrayList<String>();
-	private String currentLevelName = "no levels";
 	private int levelCount;
 	
 	public Game() {
-		// possible constructor
+		this.levelCount = 0;
 	}
 	
 	public void move(Direction d) {
 		this.currentLevel.moveWorker(d);
 		this.currentLevel.drawLevel();
-		
-		
 	}
 	
 	
@@ -34,12 +31,15 @@ public class Game {
 		}
 		else return this.currentLevel.getName();
 	}
+	
 	public Level getCurrentLevel() {
 		return this.currentLevel;
 	}
 
 	public List<String> getLevelNames() {
-		return this.levelNames;
+		List<String> testVar = this.levelNames;
+		return testVar;
+		
 	}
 	
 	public String toString() {
@@ -47,13 +47,9 @@ public class Game {
 			return "no levels";
 		}
 		else {
-			String result = "";
-			for(String name : this.levelNames) {
-				result += "\n" + this.currentLevel;
-			}
-			return result;
+			
+			return this.currentLevel.getName();
 		}
-		
 	}
 
 	public void addLevel(String name, int height, int width, String levelString) {

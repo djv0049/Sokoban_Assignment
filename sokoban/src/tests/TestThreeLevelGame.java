@@ -25,13 +25,13 @@ class TestThreeLevelGame {
 	  int actualLevelCount = game.getLevelCount();
 	  assertEquals(expectedlevelCount, actualLevelCount);
 	 }
-	/*@Test 
+	@Test 
 	 void testThreeLevelGame_toString() { // avoiding testing the string returned by the actual level     
 		 String expectedStartingString = "Level3";         
 		 String actualStartingString = game.toString();         
 		 actualStartingString = actualStartingString.substring(0, expectedStartingString.length());         
 		 assertEquals(expectedStartingString, actualStartingString);     
-		 } */         
+		 }        
 	 @Test     
 	 void testThreeLevelGame_getCurrentLevelName() {
 		 String expectedString = "Level3";         
