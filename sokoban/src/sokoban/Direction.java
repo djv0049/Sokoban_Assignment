@@ -13,10 +13,7 @@ public enum Direction {
 	private Direction(int y, int x) {
 		p = new Point (x,y);
 	}
-	// testing the eclipse commit
-	public Point offset() {
-		return p;
-	}
+
 	public Point getPoint() {
 		return p;
 	}

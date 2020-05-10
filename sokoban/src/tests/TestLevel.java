@@ -35,7 +35,15 @@ class TestLevel {
 	 assertEquals(1, level.targetCount);
 	}
 	@Test void testLevel_toString() {
-	 String expectedLevelString = "Level1" + "\n" + "######" + "\n" + "#+x..#" + "\n" + "#..w.#" + "\n" + "#....#" + "\n" + "######" + "\n" + "move 0" + "\n" + "completed 0 of 1" + "\n";
+	 String expectedLevelString = 
+			 "Level1" + "\n" +
+			 "######" + "\n" + 
+			 "#+x..#" + "\n" + 
+			 "#..w.#" + "\n" + 
+			 "#....#" + "\n" + 
+			 "######" + "\n" + 
+			 "move 0" + "\n" + 
+			 "completed 0 of 1" + "\n";
 	 String actualLevelString = level.toString();
 	 String errorMessage = "Wanted\n" + expectedLevelString + "\nGOT\n" + actualLevelString;
 	 assertTrue(expectedLevelString.equals(actualLevelString), errorMessage);

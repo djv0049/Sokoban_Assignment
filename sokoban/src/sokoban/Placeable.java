@@ -7,10 +7,6 @@ public abstract class Placeable {
 	protected int y = 9999;
 	protected String symbol = "nothing yet";
 	
-	public Placeable() {
-		
-	}
-	
 	public Point getPoint() {
 		Point p = new Point(this.x, this.y);
 		return p;
